@@ -1,0 +1,78 @@
+1)      Explain  lex and yacc tools:-
+Lex:- scanner that can identify those tokens
+
+Yacc:- parser.yacc takes a concise description of a grammar and produces a C routine that can parse that grammar.
+
+2)      give the structure of the lex program:-
+   definition section- any intitial ‘c’ program code
+% %
+Rules section- pattern and action separated by white space
+%%
+User subroutines section-concsit of any legal  code.
+
+
+3)      The lexer produced by lex in a ‘c’ routine is called yylex()
+4)      Explain yytext:- contains the text that matched the pattern.
+5)      The yacc produced by parser is called yyparse().
+6)      Why we have to include ‘y.tab.h’ in lex?
+y.tab.h contains token definitions eg:- #define letter 258.
+7)  explain the structure of a yacc program?
+Defn section- declarations of the tokens used in the grammar
+%%
+The rules section-pattern action
+%%
+Users subroutines section
+
+8)      explain yyleng?
+Yyleng-contains the length of the string our lexer recognizes.
+9)      features of unix:-multitasking,mutiuser,online help facility,security,file & process.
+10)   What is an internal command?give an example?
+Command which is shell built-in eg:echo
+11)  what is an external command?give a example?
+   Command which resides in other directories-eg:cd in /bin
+12)  what is an absolute path name?give an example?
+A file name identification with respect to the root. Eg:- /home/kumar/f1
+13)  what is an relative path name?
+A file identification not with respect to the root.
+
+13)  differentiate the commands cp and mv?
+   Cp- copy the files
+mv- renaming the file.
+14)  explain mkdir command?
+ Used to create a directory
+Eg:mkdir m1,m2
+15)  what are tokens or terminal symbols?
+Symbols that appear in the input are returned by the lexer are terminal symbols.
+
+16)  what type of data structures is used by shift/reduce parsing?
+Stack.
+
+17)  shell- it is a command interpreter
+kernel- is the core of the operating system.
+18)  what is lexical analyzer?
+Lex taking a set of descriptions of possible tokensand producing a ‘C” routine is called a lexical analyzer (or) lexer (or) scanner.
+19)  define grammer?
+   The list of rules that define the relationship that the program understands is a grammar.
+20)  what is symbol table?
+   The table of words is a simple symbol table,a common structure in lex and yacc applications.
+21)  what is pseudo token
+
+A pseudo token standing for unary minus, has no associativity is at the highest precedence.
+22) what does $$ represents?
+$$ represents the value of  the left hand side.
+
+23)  What are shell scripts?
+Using a program, we can run more than one command.
+24)  what is the usage of grep command?
+Grep command is used to search a pattern in a database.
+25)  what is exit status command?
+   Exit 0- return success,command executed successfully.
+Exit 1 – return failure.
+
+26)  what are daemons?
+   They are one system processes
+27)  uname:- tells you the name of the unix system you are using.
+28)  Umask:- tells unix which permissions to give to files and directories you create.
+29)  tty- displays the device name of your terminal
+30)  Vi editor-   (visual editor)- used to write programs.
+31)  $ls-l:-lists the attributes of a file.

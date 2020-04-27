@@ -2,7 +2,7 @@
    /* Definition section */
   #include<stdio.h> 
   #include "y.tab.h" 
-  extern int yylval; 
+  void yyerror(char *s);
 %} 
   
 /* Rule Section */

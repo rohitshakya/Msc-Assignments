@@ -1,57 +1,41 @@
-%{ 
-/* Definition section */
-#include <stdio.h> 
-#include <stdlib.h> 
-%} 
 
-%token ID 
+
+
+
+
+
+
+
+
+%{
+    #include<stdio.h>
+    int f=0;
+%}
+
+%token NUMBER
+%token ID
 %left '+' '-'
 %left '*' '/'
-%left UMINUS 
+%%
+S:  E {printf("\n");}
+    ;
+E:  E '+' E {printf("+ ");}
+    |   E '*' E {printf("* ");}
+    |   E '-' E {printf("- ");}
+    |   E '/' E {printf("/ ");}
+    |   '(' E ')'
+    |   NUMBER     {if(f==0){printf("Postfix Expression : ");f=1;} printf("%d ", yylval);}
+    |   ID         {printf("%c ", yylval);}
+    ;
+%%
 
-/* Rule Section */
-%% 
+int main(){
+    printf("\n*****************INFIX TO POSTFIX*****************\n");
+    printf("Enter Infix Expression : ");
+    yyparse();
+    return 0;
+}
 
-S : E 
-E : E'+'{push();}T{pop();} 
-| E'-'{push();}T{pop();} 
-| T 
-; 
-T : T'*'{push();}F{pop();} 
-| T'/'{push();}F{pop();} 
-| F 
-; 
-F : '('E{pop();}')'
-| '-'{push();}F{pop();} 
-| ID{show();} 
-; 
-
-%% 
-
-#include"lex.yy.c" 
-char st[100]; 
-int top=0; 
-
-//driver code 
-int main() 
-{ 
-	printf("Enter infix expression: "); 
-	yyparse(); 
-	printf("\n"); 
-	return 0; 
-} 
-push() 
-{ 
-	st[top++]=yytext[0]; 
-} 
-
-pop() 
-{ 
-	printf("%c", st[--top]); 
-} 
-
-show() 
-{ 
-	printf("%c", yytext[0]); 
-} 
-
+int yyerror (char *msg) {
+    return printf ("Invalid Infix Expression...");
+}

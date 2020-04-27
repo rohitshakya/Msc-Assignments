@@ -1,14 +1,27 @@
-%{ 
-/* Definition section */
+
+
+
+
+
+
+
+
+
+%{
+  #include<stdio.h> 
+  #include "y.tab.h" 
+  extern int yylval; 
 %} 
-ALPHA [A-Z a-z] 
-DIGIT [0-9] 
 
-/* Rule Section */
+%%
+[A-Za-z] {yylval = *yytext; return ID;}  
+[0-9]+ {yylval=atoi(yytext); return NUMBER;} 
+[\t] ; 
+[\n]   {return 0;} 
+. 	   {return yytext[0];} 
 %% 
-{ALPHA}({ALPHA}|{DIGIT})* return ID; 
-{DIGIT}+				 {yylval=atoi(yytext); return ID;} 
-[\n \t]	 yyterminate(); 
-.	 return yytext[0]; 
-%% 
-
+  
+int yywrap() 
+{ 
+ return 1;
+}

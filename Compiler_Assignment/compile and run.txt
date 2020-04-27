@@ -1,0 +1,7 @@
+Write lex program in a file file.l and yacc in a file file.y
+Open Terminal and Navigate to the Directory where you have saved the files.
+type lex file.l
+type yacc file.y
+type cc lex.yy.c y.tab.h -ll or cc lex.yy.c y.tab.c -w
+type ./a.out
+
